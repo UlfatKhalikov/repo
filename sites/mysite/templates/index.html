@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apple Tech</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link type="text/css" href="{% static 'styles.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <div class="header">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <span class="navbar-brand mb-0 h1">Apple Tech</span>
+            </div>
+          </nav>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a href="/reg" class="nav-link active">Регистрация</a>                
+                </li>
+                <li class="nav-item">
+                  <button type="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                    Личный кабинет
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="" href="#">О нас</a>
+                </li>
+
+              </ul>
+            </div>
+          </nav>
+
+        </div>
+      </nav>
+    </div>
+
+
+    <!-- Auth -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="reg">
+              <p class="p_auth">Авторизация</p>
+              <form action="#" class="form" method="POST">
+                {% csrf_token %}
+                <div class="log">
+                  <input type="text" class="login" placeholder="Логин" name="log">
+                </div>
+                <div class="pas">
+                  <input type="password" class="Password" name="psw" placeholder="Пароль">
+                </div>
+                <div class="btn_btn">
+                  <button class="btn">Войти</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="err">
+      {{err}}
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"></script>
+  </div>
+
+</body>
+
+</html>
